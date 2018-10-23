@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'KKExtensionKit_Example' do
+  pod 'KKExtensionKit', :path => '../'
+
+  target 'KKExtensionKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
