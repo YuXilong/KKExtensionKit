@@ -1,0 +1,6 @@
+framework module KKExtensionKit {
+  umbrella header "KKExtensionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

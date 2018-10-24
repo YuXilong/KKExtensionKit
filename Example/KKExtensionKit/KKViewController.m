@@ -7,6 +7,7 @@
 //
 
 #import "KKViewController.h"
+#import <KKExtensionKit/KKExtensionKit.h>
 
 @interface KKViewController ()
 
@@ -18,12 +19,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [SVProgressHUD kk_papareForCommonStyle];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [SVProgressHUD dismiss];
 }
+- (IBAction)btnClick:(id)sender {
+    [SVProgressHUD showWithStatus:@"请稍后"];
+    kk_dispatch_after_on_main_queue(2.0, ^{
+        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+    });
+}
+
 
 @end

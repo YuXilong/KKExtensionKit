@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		018B7436BF9A5B051EEA55A1 /* Pods-KKExtensionKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKExtensionKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KKExtensionKit_Example/Pods-KKExtensionKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		258FCF638EDB373C76BCAC80 /* Pods-KKExtensionKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKExtensionKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKExtensionKit_Example/Pods-KKExtensionKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4139C2CA7E6E21124A548E25 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		4139C2CA7E6E21124A548E25 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* KKExtensionKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKExtensionKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,11 +61,11 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF154638155AD3D2D326366 /* Pods-KKExtensionKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKExtensionKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KKExtensionKit_Tests/Pods-KKExtensionKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		7F954BF5A5BA0DF02504FDED /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7F954BF5A5BA0DF02504FDED /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		83B2F501A53DBBF70647C04F /* Pods_KKExtensionKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKExtensionKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2E5307732C6D08DF2F142AB /* Pods-KKExtensionKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKExtensionKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKExtensionKit_Tests/Pods-KKExtensionKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		B77FE237EAD8FD7D41248D00 /* KKExtensionKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = KKExtensionKit.podspec; path = ../KKExtensionKit.podspec; sourceTree = "<group>"; };
+		B77FE237EAD8FD7D41248D00 /* KKExtensionKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KKExtensionKit.podspec; path = ../KKExtensionKit.podspec; sourceTree = "<group>"; };
 		DD1D3E0855907CA343A0CBA8 /* Pods_KKExtensionKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKExtensionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -247,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = JackYu;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = JS48M55695;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -347,13 +350,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KKExtensionKit_Example/Pods-KKExtensionKit_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/KKExtensionKit/KKExtensionKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KKExtensionKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -497,6 +506,7 @@
 			baseConfigurationReference = 018B7436BF9A5B051EEA55A1 /* Pods-KKExtensionKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JS48M55695;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KKExtensionKit/KKExtensionKit-Prefix.pch";
 				INFOPLIST_FILE = "KKExtensionKit/KKExtensionKit-Info.plist";
@@ -512,6 +522,7 @@
 			baseConfigurationReference = 258FCF638EDB373C76BCAC80 /* Pods-KKExtensionKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JS48M55695;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KKExtensionKit/KKExtensionKit-Prefix.pch";
 				INFOPLIST_FILE = "KKExtensionKit/KKExtensionKit-Info.plist";
