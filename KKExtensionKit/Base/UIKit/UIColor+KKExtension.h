@@ -9,8 +9,8 @@
 /* 十六进制转UIColor */
 + (UIColor *)kk_colorWithHex:(NSString *)hexString;
 
+@end
+
 static inline UIColor * KKColorFromHexString(NSString *hexString) {
     return [UIColor kk_colorWithHex:hexString];
 }
-
-@end

@@ -1,9 +1,8 @@
 {
   "name": "KKExtensionKit",
-  "version": "1.0.0",
-  "summary": "A short description of KKExtensionKit.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/JackYu/KKExtensionKit",
+  "version": "1.0.1",
+  "summary": "iOS常用工具类扩展.",
+  "homepage": "https://github.com/YuXilong",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,14 +11,14 @@
     "JackYu": "305758560@qq.com"
   },
   "source": {
-    "git": "https://github.com/JackYu/KKExtensionKit.git",
-    "tag": "1.0.0"
+    "git": "https://github.com/YuXilong/KKExtensionKit.git",
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "KKExtensionKit/**/*",
-  "public_header_files": "Pod/*.h",
+  "source_files": "KKExtensionKit/**/*.{h,m}",
+  "public_header_files": "KKExtensionKit/**/*.{h}",
   "prefix_header_contents": "#import <CocoaLumberjack/CocoaLumberjack.h>",
   "frameworks": "UIKit",
   "dependencies": {

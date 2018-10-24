@@ -26,7 +26,12 @@ CGSize _KKScreenSize() {
 }
 
 UIEdgeInsets KKWindowSafeInsets() {
-    return [UIApplication sharedApplication].keyWindow.safeAreaInsets;
+    if (@available(iOS 11.0, *)) {
+        return [UIApplication sharedApplication].keyWindow.safeAreaInsets;
+    } else {
+        // Fallback on earlier versions
+        return UIEdgeInsetsZero;
+    }
 }
 
 @end

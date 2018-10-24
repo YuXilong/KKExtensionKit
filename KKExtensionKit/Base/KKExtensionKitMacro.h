@@ -59,7 +59,7 @@ static inline BOOL kk_dispatch_is_on_main_queue() {
 }
 
 // MARK: 在主线程执行 异步
-static inline void kk_dispatch_async_on_main_queue(void (^block)()) {
+static inline void kk_dispatch_async_on_main_queue(void (^block)(void)) {
     if (pthread_main_np()) {
         block();
     } else {
@@ -68,7 +68,7 @@ static inline void kk_dispatch_async_on_main_queue(void (^block)()) {
 }
 
 // MARK: 在主线程执行 同步
-static inline void kk_dispatch_sync_on_main_queue(void (^block)()) {
+static inline void kk_dispatch_sync_on_main_queue(void (^block)(void)) {
     if (pthread_main_np()) {
         block();
     } else {
@@ -77,17 +77,17 @@ static inline void kk_dispatch_sync_on_main_queue(void (^block)()) {
 }
 
 // MARK: 在全局线程执行 异步
-static inline void kk_dispatch_async_on_global_queue(void (^block)()) {
+static inline void kk_dispatch_async_on_global_queue(void (^block)(void)) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 
 // MARK: 延迟执行在主线程
-static inline void kk_dispatch_after_on_main_queue(CGFloat delayTime, void (^block)()) {
+static inline void kk_dispatch_after_on_main_queue(CGFloat delayTime, void (^block)(void)) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
 // MARK: 延迟执行在全局线程
-static inline void kk_dispatch_after_on_global_queue(CGFloat delayTime, void (^block)()) {
+static inline void kk_dispatch_after_on_global_queue(CGFloat delayTime, void (^block)(void)) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 

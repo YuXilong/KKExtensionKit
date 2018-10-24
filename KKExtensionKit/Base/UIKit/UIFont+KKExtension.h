@@ -15,6 +15,8 @@
 // PingFangSC-Regular
 + (UIFont *)kk_PingFangSCRegularWithFontSize:(CGFloat)fontSize;
 
+@end
+
 static inline UIFont * KKFont_PingFang_SC_Semibold(CGFloat fontSize) {
     return [UIFont kk_PingFangSCSemiboldWithFontSize:fontSize];
 }
@@ -26,6 +28,3 @@ static inline UIFont * KKFont_PingFang_SC_Medium(CGFloat fontSize) {
 static inline UIFont * KKFont_PingFang_SC_Regular(CGFloat fontSize) {
     return [UIFont kk_PingFangSCRegularWithFontSize:fontSize];
 }
-
-
-@end
