@@ -23,6 +23,8 @@
     _blackView = [UIView new];
     _blackView.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0.5];
     _blackView.frame = self.containerView.bounds;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent)];
+    [_blackView addGestureRecognizer:tap];
     return _blackView;
 }
 
@@ -107,6 +109,13 @@
              self, presented, self.presentedViewController);
     
     return self;
+}
+
+// MARK: Event
+- (void)tapEvent {
+    if (self.kk_autoDismiss) {
+        [self.presentedViewController dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 

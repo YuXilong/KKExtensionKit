@@ -65,7 +65,7 @@
 		83B2F501A53DBBF70647C04F /* Pods_KKExtensionKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKExtensionKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2E5307732C6D08DF2F142AB /* Pods-KKExtensionKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKExtensionKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KKExtensionKit_Tests/Pods-KKExtensionKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		B77FE237EAD8FD7D41248D00 /* KKExtensionKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KKExtensionKit.podspec; path = ../KKExtensionKit.podspec; sourceTree = "<group>"; };
+		B77FE237EAD8FD7D41248D00 /* KKExtensionKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KKExtensionKit.podspec; path = ../KKExtensionKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DD1D3E0855907CA343A0CBA8 /* Pods_KKExtensionKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKExtensionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 

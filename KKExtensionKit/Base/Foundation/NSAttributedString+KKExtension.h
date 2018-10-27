@@ -12,7 +12,5 @@
  * @param font 字体
  * @param color 颜色
  */
-+ (NSAttributedString *)kk_createWithString:(NSString *)string
-                                       font:(UIFont *)font
-                                      color:(UIColor *)color;
++ (NSAttributedString *)kk_createWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color;
 @end

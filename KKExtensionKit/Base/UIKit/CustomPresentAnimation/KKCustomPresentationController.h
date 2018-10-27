@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 源视图 */
 @property (nonatomic, strong) UIViewController *kk_presentingVC;
 
+/** 点击背景自动Dismiss */
+@property (nonatomic, assign) BOOL kk_autoDismiss;
+
 @end
 
 NS_ASSUME_NONNULL_END
