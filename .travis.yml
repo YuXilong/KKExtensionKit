@@ -1,35 +1,74 @@
-
 language: objective-c
-osx_image: xcode10
-sudo: false
+osx_image: xcode10.2
+
 env:
   global:
-  - LC_CTYPE=en_US.UTF-8
-  - LANG=en_US.UTF-8
-  - LANGUAGE=en_US.UTF-8
-  - FASTLANE_LANE=ci_commit
-matrix:
-  include:
-    - osx_image: xcode10
-      env: FASTLANE_LANE=code_coverage FASTLANE_ENV=default
-    - osx_image: xcode10
-      env: FASTLANE_ENV=ios12_xcode10
-brefor_install:
-  # Force bundler 1.12.5 because version 1.13 has issues, see https://github.com/fastlane/fastlane/issues/6065#issuecomment-246044617
-  - gem uninstall bundler -v '>1.12.5' --force --executables || echo "bundler >1.12.5 is not installed"
-  - gem install bundler -v 1.12.5 --no-rdoc --no-ri --no-document --quiet
-  - gem install fastlane --no-rdoc --no-ri --no-document --quiet
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
-script:
-  - set -o pipefail
-  - fastlane $FASTLANE_LANE configuration:Debug --env $FASTLANE_ENV
-  - fastlane $FASTLANE_LANE configuration:Release --env $FASTLANE_ENV
-after_success:
-  - if [ "$FASTLANE_LANE" == "code_coverage" ]; then
-     bash <(curl -s https://codecov.io/bash);
-    fi
-after_failure:
-  - cat -n ~/Library/Logs/scan/*
-  - cat -n $TMPDIR/com.apple.dt.XCTest-status/Session*.log
-  - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
+    - LC_CTYPE=en_US.UTF-8
+    - LANG=en_US.UTF-8
 
+notifications:
+  email: false
+
+addons:
+  homebrew:
+    packages:
+    - curl # Fix the codecov upload issue
+
+cache: cocoapods
+podfile: Podfile
+
+before_install:
+    - env
+    - locale
+    - gem install cocoapods --no-document --quiet
+    - gem install xcpretty --no-document --quiet
+    - pod --version
+    - pod repo update --silent
+    - xcpretty --version
+    - xcodebuild -version
+    - xcodebuild -showsdks
+
+script:
+    - set -o pipefail
+
+    - echo Check if the library described by the podspec can be built
+    - pod lib lint --allow-warnings --skip-tests # Will run test below
+
+    - echo Build as static library
+    - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit static' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+    - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit static' -sdk watchsimulator -configuration Debug | xcpretty -c
+
+    - echo Clean DerivedData
+    - rm -rf ~/Library/Developer/Xcode/DerivedData/
+
+    - echo Build as dynamic frameworks
+    # - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit' -sdk macosx -configuration Debug | xcpretty -c
+    - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
+    # - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit' -sdk appletvsimulator -configuration Debug | xcpretty -c
+    # - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit' -sdk watchsimulator -configuration Debug | xcpretty -c
+
+    - echo Clean DerivedData
+    - rm -rf ~/Library/Developer/Xcode/DerivedData/
+
+    - echo Build the Demo apps
+    - pod install
+    # - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit OSX Demo' -destination 'platform=macOS,arch=x86_64' -configuration Debug CODE_SIGNING_ALLOWED=NO | xcpretty -c
+    - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit-Example' -destination 'platform=iOS Simulator,name=iPhone XS' -configuration Debug CODE_SIGNING_ALLOWED=NO | xcpretty -c
+    # - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit TV Demo' -destination 'platform=tvOS Simulator,name=Apple TV 4K' -configuration Debug CODE_SIGNING_ALLOWED=NO | xcpretty -c
+    # - xcodebuild build -workspace KKExtensionKit.xcworkspace -scheme 'KKExtensionKit Watch Demo' -destination 'platform=iOS Simulator,name=iPhone XS' -configuration Debug CODE_SIGNING_ALLOWED=NO | xcpretty -c
+
+    - echo Clean DerivedData
+    - rm -rf ~/Library/Developer/Xcode/DerivedData/
+    # - mkdir DerivedData
+
+    # - echo Run the tests
+    # - xcodebuild clean test -workspace KKExtensionKit.xcworkspace -scheme 'Tests' -destination 'platform=iOS Simulator,name=iPhone XS' -configuration Debug -UseModernBuildSystem=NO CODE_SIGNING_ALLOWED=NO | xcpretty -c
+    # - mv ~/Library/Developer/Xcode/DerivedData/ ./DerivedData/iOS
+    # - xcodebuild clean test -workspace KKExtensionKit.xcworkspace -scheme 'Tests Mac' -destination 'platform=macOS,arch=x86_64' -configuration Debug -UseModernBuildSystem=NO CODE_SIGNING_ALLOWED=NO | xcpretty -c
+    # - mv ~/Library/Developer/Xcode/DerivedData/ ./DerivedData/macOS
+
+after_success:
+    - export PATH="/usr/local/opt/curl/bin:$PATH"
+    - curl --version
+    - bash <(curl -s https://codecov.io/bash) -D './DerivedData/macOS' -J '^SDWebImage$' -c -X gcov -F macos
+    - bash <(curl -s https://codecov.io/bash) -D './DerivedData/iOS' -J '^SDWebImage$' -c -X gcov -F ios
