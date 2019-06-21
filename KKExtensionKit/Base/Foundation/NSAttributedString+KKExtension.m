@@ -7,8 +7,10 @@
 
 @implementation NSAttributedString (KKExtension)
 
-// MARK: 快捷创建富文本
-+ (NSAttributedString *)kk_createWithString:(NSString *)string font:(UIFont *)font color:(UIColor *)color {
++ (NSAttributedString *)kk_createWithString:(NSString *)string
+                                       font:(UIFont *)font
+                                      color:(UIColor *)color
+{
     if (![string kk_validString] || font == nil || color == nil) {
         return [[NSAttributedString alloc] init];
     }

@@ -14,3 +14,7 @@
 static inline UIColor * KKColorFromHexString(NSString *hexString) {
     return [UIColor kk_colorWithHex:hexString];
 }
+
+#ifndef KKColor
+#define KKColor(hexString) [UIColor kk_colorWithHex:hexString]
+#endif

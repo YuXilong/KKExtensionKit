@@ -4,9 +4,6 @@
 
 #import "KKCGUtilities.h"
 
-
-@implementation KKCGUtilities
-
 CGFloat _KKScreenScale() {
     static CGFloat scale;
     static dispatch_once_t onceToken;
@@ -33,5 +30,3 @@ UIEdgeInsets KKWindowSafeInsets() {
         return UIEdgeInsetsZero;
     }
 }
-
-@end

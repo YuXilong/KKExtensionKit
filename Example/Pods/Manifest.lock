@@ -1,16 +1,31 @@
 PODS:
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
-  - KKExtensionKit (1.0.2):
+  - CocoaLumberjack (3.5.3):
+    - CocoaLumberjack/Core (= 3.5.3)
+  - CocoaLumberjack/Core (3.5.3)
+  - KKExtensionKit (1.0.3):
+    - KKExtensionKit/Core (= 1.0.3)
+  - KKExtensionKit/Base (1.0.3)
+  - "KKExtensionKit/CocoaLumberjack+Extension (1.0.3)":
     - CocoaLumberjack
+  - KKExtensionKit/Core (1.0.3):
+    - KKExtensionKit/Base
+    - "KKExtensionKit/CocoaLumberjack+Extension"
+    - "KKExtensionKit/MProgressHUD+Extension"
+    - "KKExtensionKit/SVProgressHUD+Extension"
+    - "KKExtensionKit/Texture+Extension"
+  - "KKExtensionKit/MProgressHUD+Extension (1.0.3)":
     - MBProgressHUD (~> 1.1.0)
+  - "KKExtensionKit/SVProgressHUD+Extension (1.0.3)":
     - SVProgressHUD
+  - "KKExtensionKit/Texture+Extension (1.0.3)":
+    - SDWebImage
+    - Texture/Core
   - MBProgressHUD (1.1.0)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
   - SVProgressHUD (2.2.5)
+  - Texture/Core (2.8.1)
 
 DEPENDENCIES:
   - KKExtensionKit (from `../`)
@@ -19,18 +34,22 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CocoaLumberjack
     - MBProgressHUD
+    - SDWebImage
     - SVProgressHUD
+    - Texture
 
 EXTERNAL SOURCES:
   KKExtensionKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  KKExtensionKit: bad44dc65dbfeb7dbe1fe84fa3ae69b4704ed5aa
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
+  KKExtensionKit: 598c6699547165a5c7ae1813d8dc532882323a6f
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
 PODFILE CHECKSUM: c6efc1653b9d13bd4a2be6386a0507d1d2a7e633
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.2

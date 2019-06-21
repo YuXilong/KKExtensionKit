@@ -9,30 +9,35 @@
 
 #if __has_include(<KKExtensionKit/KKExtensionKit.h>)
 
-// MARK: Base
-// MARK: UIKit
-#import <KKExtensionKit/UIViewController+KKExtension.h>
-#import <KKExtensionKit/UIColor+KKExtension.h>
-#import <KKExtensionKit/UIFont+KKExtension.h>
-#import <KKExtensionKit/UIApplication+KKExtension.h>
+    #if __has_include(<KKExtensionKit/BaseExtensionHeader.h>)
 
-// MARK: Foundation
-#import <KKExtensionKit/NSString+KKExtension.h>
-#import <KKExtensionKit/NSObject+KKExtension.h>
-#import <KKExtensionKit/NSAttributedString+KKExtension.h>
+        #import <KKExtensionKit/BaseExtensionHeader.h>
 
-// MARK: Quartz
-#import <KKExtensionKit/KKCGUtilities.h>
+    #endif
 
-// MARK: 自定义视图
+    #if __has_include(<KKExtensionKit/CocoaLumberjack+ExtensionHeader.h>)
 
+        #import <KKExtensionKit/CocoaLumberjack+ExtensionHeader.h>
 
-// MARK: 宏定义
-#import <KKExtensionKit/KKExtensionKitMacro.h>
+    #endif
 
-// MARK: Vendor
-#import <KKExtensionKit/MBProgressHUD+KKExtension.h>
-#import <KKExtensionKit/SVProgressHUD+KKExtension.h>
+    #if __has_include(<KKExtensionKit/MProgressHUD+ExtensionHeader.h>)
 
+        #import <KKExtensionKit/MProgressHUD+ExtensionHeader.h>
+
+    #endif
+
+    #if __has_include(<KKExtensionKit/SVProgressHUD+ExtensionHeader.h>)
+
+        #import <KKExtensionKit/SVProgressHUD+ExtensionHeader.h>
+
+    #endif
+
+    #if __has_include(<KKExtensionKit/Texture+ExtensionHeader.h>)
+
+        #import <KKExtensionKit/Texture+ExtensionHeader.h>
+
+    #endif
 
 #endif /* KKExtensionKit_h */
+

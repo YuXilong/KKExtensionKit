@@ -6,7 +6,6 @@
 //
 
 #import <pthread.h>
-#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #ifndef KKExtensionKitMacro_h
 #define KKExtensionKitMacro_h
@@ -90,10 +89,6 @@ static inline void kk_dispatch_after_on_main_queue(CGFloat delayTime, void (^blo
 static inline void kk_dispatch_after_on_global_queue(CGFloat delayTime, void (^block)(void)) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
-
-// MARK: Log
-DDLogLevel ddLogLevel = DDLogLevelDebug;
-
 
 KK_EXTERN_C_END
 

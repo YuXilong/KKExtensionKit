@@ -4,13 +4,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KKCGUtilities : NSObject
-
+/// 屏幕缩放比
 CGFloat _KKScreenScale(void);
 
+/// 屏幕尺寸
 CGSize _KKScreenSize(void);
 
+/// 安全区
 UIEdgeInsets KKWindowSafeInsets(void);
+
 
 #ifndef KKScreenSize
 #define KKScreenSize _KKScreenSize()
@@ -32,6 +34,10 @@ UIEdgeInsets KKWindowSafeInsets(void);
 #define KKSafeInsets KKWindowSafeInsets()
 #endif
 
+#ifndef KKSafeInsetsTop
+#define KKSafeInsetsTop KKWindowSafeInsets().top
+#endif
 
-
-@end
+#ifndef KKSafeInsetsBottom
+#define KKSafeInsetsBottom KKWindowSafeInsets().bottom
+#endif
