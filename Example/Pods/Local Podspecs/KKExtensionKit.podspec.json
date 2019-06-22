@@ -30,9 +30,6 @@
         "KKExtensionKit/Texture+Extension": [
 
         ],
-        "KKExtensionKit/CocoaLumberjack+Extension": [
-
-        ],
         "KKExtensionKit/MProgressHUD+Extension": [
 
         ],
@@ -72,6 +69,10 @@
     },
     {
       "name": "CocoaLumberjack+Extension",
+      "prefix_header_contents": [
+        "#import <CocoaLumberjack/CocoaLumberjack.h>",
+        "DDLogLevel ddLogLevel = DDLogLevelDebug;"
+      ],
       "public_header_files": "KKExtensionKit/CocoaLumberjack+Extension/*.h",
       "source_files": "KKExtensionKit/CocoaLumberjack+Extension/*.{h,m}",
       "dependencies": {

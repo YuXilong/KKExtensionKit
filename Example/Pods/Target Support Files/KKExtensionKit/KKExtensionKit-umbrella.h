@@ -23,8 +23,6 @@
 #import "UIScreen+KKExtension.h"
 #import "UIViewController+KKExtension.h"
 #import "KKCustomPresentationController.h"
-#import "CocoaLumberjack+ExtensionHeader.h"
-#import "DDLog+KKExtension.h"
 #import "MBProgressHUD+KKExtension.h"
 #import "MProgressHUD+ExtensionHeader.h"
 #import "SVProgressHUD+ExtensionHeader.h"

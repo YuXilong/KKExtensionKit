@@ -7,6 +7,7 @@
 //
 
 #import "KKAppDelegate.h"
+#import <KKExtensionKit/KKExtensionKit.h>
 
 @implementation KKAppDelegate
 

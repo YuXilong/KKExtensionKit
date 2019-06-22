@@ -41,3 +41,7 @@ UIEdgeInsets KKWindowSafeInsets(void);
 #ifndef KKSafeInsetsBottom
 #define KKSafeInsetsBottom KKWindowSafeInsets().bottom
 #endif
+
+#ifndef KKNavigationBarHeight
+#define KKNavigationBarHeight 44.0
+#endif

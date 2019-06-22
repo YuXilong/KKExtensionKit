@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KKExtensionKit'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'iOS常用工具类扩展.'
   s.homepage         = 'https://github.com/YuXilong'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |c|
     c.dependency 'KKExtensionKit/Base'
     c.dependency 'KKExtensionKit/Texture+Extension'
-    c.dependency 'KKExtensionKit/CocoaLumberjack+Extension'
+    # c.dependency 'KKExtensionKit/CocoaLumberjack+Extension'
     c.dependency 'KKExtensionKit/MProgressHUD+Extension'
     c.dependency 'KKExtensionKit/SVProgressHUD+Extension'
   end
@@ -50,11 +50,15 @@ Pod::Spec.new do |s|
   end
 
   # CocoaLumberjack日志扩展
-  s.subspec 'CocoaLumberjack+Extension' do |co|
-    co.public_header_files = 'KKExtensionKit/CocoaLumberjack+Extension/*.h'
-    co.source_files = 'KKExtensionKit/CocoaLumberjack+Extension/*.{h,m}'
-    co.dependency 'CocoaLumberjack'
-  end
+  # s.subspec 'CocoaLumberjack+Extension' do |co|
+  #   co.prefix_header_contents = [
+  #     '#import <CocoaLumberjack/CocoaLumberjack.h>', 
+  #     'DDLogLevel ddLogLevel = DDLogLevelDebug;'
+  #   ]
+  #   co.public_header_files = 'KKExtensionKit/CocoaLumberjack+Extension/*.h'
+  #   co.source_files = 'KKExtensionKit/CocoaLumberjack+Extension/*.{h,m}'
+  #   co.dependency 'CocoaLumberjack'
+  # end
 
   # MBProgressHUD扩展
   s.subspec 'MProgressHUD+Extension' do |mb|

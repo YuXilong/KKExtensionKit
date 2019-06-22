@@ -27,6 +27,6 @@ UIEdgeInsets KKWindowSafeInsets() {
         return [UIApplication sharedApplication].keyWindow.safeAreaInsets;
     } else {
         // Fallback on earlier versions
-        return UIEdgeInsetsZero;
+        return UIEdgeInsetsMake(CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame), 0, 0, 0);
     }
 }
